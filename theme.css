@@ -655,6 +655,7 @@ select:focus,
 .view-header {
 	border-radius: var(--radius-xl);
 	margin: 0 0 8px 0;
+  background-color: transparent;
 }
 
 .workspace-tabs.mod-top:has(.obsidian-banner-wrapper) {
@@ -798,6 +799,28 @@ select:focus,
 	border-radius: var(--radius-m);
 }
 
+.mod-root .workspace-tabs .workspace-leaf {
+  background-color: transparent;
+}
+
+.workspace-split .workspace-leaf-content:not([data-type="file-explorer"]), .workspace-leaf-content[data-type="file-explorer"] {
+  background-color: transparent;
+}
+
+/* tabs */
+.workspace .mod-root .workspace-tab-header {
+  background-color: transparent;
+  border: 1px solid #ffffff30;
+}
+
+.workspace .mod-root .workspace-tab-header:hover:not(.is-active) {
+  background-color: var(--text-selection);
+}
+
+.workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+  background-color: inherit;
+}
+
 /*================================================*/
 /* General Styling
 /*================================================*/
@@ -939,6 +962,10 @@ body:not(.is-phone) .workspace-leaf.mod-active .tree-item-self.has-focus {
 	color: var(--C009);
 }
 
+.cm-s-obsidian span.obsidian-search-match-highlight {
+	mix-blend-mode: difference;
+}
+
 .tasksCalendar[view="month"] .wrappers:before,
 .tasksCalendar[view="list"] .list:before {
 	content: none !important;
@@ -1008,6 +1035,31 @@ h6,
 .markdown-rendered h6,
 .cm-header-6 {
 	color: var(--C009);
+}
+
+
+/* search result */
+.tree-item.search-result {
+  outline: 2px solid var(--600);
+  border-radius: 10px;
+}
+
+.tree-item.search-result:hover {
+  color: var(--text-normal);
+  background-color: var(--text-selection);
+  outline: 2px solid var(--000);
+  border-radius: 10px;
+}
+
+.search-results-children {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* collapse indicator */
+.collapse-indicator.collapse-icon {
+  cursor: pointer !important;
 }
 
 /*================================================*/
@@ -2084,12 +2136,12 @@ body:not(.is-grabbing) .tree-item-self.is-active:hover,
 
 .nav-file-title.is-active {
 	font-weight: bold !important;
-	background: linear-gradient(0.25turn, #0000001c, #ffffff00) !important;
+	background: linear-gradient(0.25turn, #ffffff40, #ffffff00) !important;
 }
 
 .nav-file-title.is-selected,
 .nav-folder-title.is-selected {
-	background: linear-gradient(0.25turn, #00000034, #00000000) !important;
+	background: linear-gradient(0.25turn, #ffffff40, #00000000) !important;
 }
 
 /*================================================*/
@@ -2219,6 +2271,10 @@ body:not(.is-grabbing) .tree-item-self.is-active:hover,
 /*================================================*/
 /* Enhanced Checkboxes
 /*================================================*/
+input.task-list-item-checkbox {
+  cursor: pointer;
+}
+
 [data-task="."] > input[type="checkbox"]:checked:after,
 [data-task="."] > p > input[type="checkbox"]:checked:after,
 [data-task="."][type="checkbox"]:checked:after,
